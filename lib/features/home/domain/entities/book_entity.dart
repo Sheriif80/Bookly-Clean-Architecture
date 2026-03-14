@@ -1,9 +1,20 @@
+import 'package:hive_ce_flutter/hive_flutter.dart';
+
+part 'book_entity.g.dart';
+
+@HiveType(typeId: 0)
 class BookEntity {
+  @HiveField(0)
   final String bookID;
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final String? image;
+  @HiveField(3)
   final String? authorName;
+  @HiveField(4)
   final num? price;
+  @HiveField(5)
   final num? rating;
 
   BookEntity({
