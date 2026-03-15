@@ -1,4 +1,5 @@
 import 'package:bookly/constants.dart';
+import 'package:bookly/core/services/get_it_service.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ void main() async {
   Hive.registerAdapter<BookEntity>(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBooksBox);
   await Hive.openBox<BookEntity>(kNewestBooksBox);
+  setupGetIt();
   runApp(const BooklyApp());
 }
 
