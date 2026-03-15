@@ -11,7 +11,7 @@ class BooksListviewBuilderBlocBuilder extends StatelessWidget {
     return BlocBuilder<FetchFeaturedBooksCubit, FetchFeaturedBooksState>(
       builder: (context, state) {
         if (state is FetchFeaturedBooksSuccess) {
-          return const BooksListviewBuilder();
+          return BooksListviewBuilder(books: state.books);
         } else if (state is FetchFeaturedBooksFailure) {
           return Text(state.errMessage);
         } else {
