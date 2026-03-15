@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.imageUrl});
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.27),
-          child: const BookItem(imageUrl: ''),
+          child: BookItem(imageUrl: imageUrl),
         ),
         const Gap(45),
         const Text('The Jungle Book', style: Styles.bookTitleLarge),

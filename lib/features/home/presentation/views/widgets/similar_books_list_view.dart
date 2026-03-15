@@ -14,7 +14,10 @@ class SimilarBookListView extends StatelessWidget {
         scrollDirection: .horizontal,
         itemCount: 5,
         itemBuilder: (context, index) {
-          return const BookItem(imageUrl: '');
+          return const BookItem(
+            imageUrl:
+                "http://books.google.com/books/content?id=otw9AQAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+          );
         },
       ),
     );
