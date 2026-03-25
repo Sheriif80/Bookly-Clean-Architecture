@@ -30,7 +30,7 @@ class _BooksListviewBuilderState extends State<BooksListviewBuilder> {
   void _scrollListener() async {
     if (_controller.position.pixels >=
         0.7 * _controller.position.maxScrollExtent) {
-      if (isLoading == false) {
+      if (!isLoading) {
         isLoading = true;
         await context.read<FetchFeaturedBooksCubit>().fetchFeaturedBooks(
           pageNumber: nextPage,

@@ -18,7 +18,7 @@ class HomeViewBody extends StatelessWidget {
           Expanded(
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(child: BooksListviewBuilderBlocBuilder()),
+                SliverToBoxAdapter(child: BooksListviewBuilderBlocConsumer()),
                 SliverToBoxAdapter(child: Gap(52)),
                 SliverToBoxAdapter(
                   child: Padding(
