@@ -20,11 +20,15 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       List<BookEntity> booksList;
-      booksList = homeLocalDataSource.fetchFeaturedBooks();
+      booksList = homeLocalDataSource.fetchFeaturedBooks(
+        pageNumber: pageNumber,
+      );
       if (booksList.isNotEmpty) {
         return right(booksList);
       }
-      booksList = await homeRemoteDataSource.fetchFeaturedBooks();
+      booksList = await homeRemoteDataSource.fetchFeaturedBooks(
+        pageNumber: pageNumber,
+      );
       homeLocalDataSource.fetchFeaturedBooks();
       return right(booksList);
     } catch (e) {
