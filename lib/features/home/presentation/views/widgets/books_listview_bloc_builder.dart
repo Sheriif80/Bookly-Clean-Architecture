@@ -3,6 +3,7 @@ import 'package:bookly/features/home/presentation/managers/fetch_featured_books_
 import 'package:bookly/features/home/presentation/views/widgets/books_listview_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class BooksListviewBuilderBlocConsumer extends StatefulWidget {
   const BooksListviewBuilderBlocConsumer({super.key});
@@ -33,7 +34,10 @@ class _BooksListviewBuilderBlocConsumerState
         if (state is FetchFeaturedBooksSuccess ||
             state is FetchFeaturedBooksPaginationLoading ||
             state is FetchFeaturedBooksPaginationFailure) {
-          return BooksListviewBuilder(books: books);
+          return Skeletonizer(
+            enabled: state is FetchFeaturedBooksPaginationLoading,
+            child: BooksListviewBuilder(books: books),
+          );
         } else if (state is FetchFeaturedBooksFailure) {
           return Text(state.errMessage);
         } else {
